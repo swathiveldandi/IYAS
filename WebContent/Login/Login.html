@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="loginctrl.js"></script>
+<script type="text/javascript" src="loginService.js"></script>
+<link href="resources/login.css" rel="stylesheet">
+</head>
+<body data-ng-app="app">
+<h2>Login</h2>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+            <h4>Welcome back.</h4>
+            <form action="" data-ng-submit="vm.login()">
+            <input type="text" id="userName" class="form-control input-sm chat-input"  data-ng-model="vm.username" placeholder="username" />
+            </br>
+            <input type="password" id="userPassword" class="form-control input-sm chat-input" data-ng-model="vm.password" placeholder="password" />
+            </br>
+            <div class="wrapper">
+            <span class="group-btn">     
+                <input type="submit" class="btn btn-primary btn-md"value="login"><i class="fa fa-sign-in"></i>
+            </span>
+            
+            </div>
+            </form>
+            </div>
+        
+        </div>
+    </div>
+</div>
+<!-- <form action="" data-ng-submit="vm.login()">
+Username:
+<input type="text" data-ng-model="vm.username">
+Password:
+<input type="password" data-ng-model="vm.password">
+<button type="submit">Login</button>
+</form>
+ -->
+</body>
+</html>

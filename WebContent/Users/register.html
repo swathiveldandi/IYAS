@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="../resources/angular.min.js"></script>
+<script type="text/javascript" src="userctrl.js"></script>
+<link href="resources/register.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body data-ng-app="registerApp">
+ <div class="container">
+            <form class="form-horizontal" role="form" data-ng-submit="submit()" data-ng-controller="userctrl">
+                <h2>Registration Form</h2>
+                <div class="form-group">
+               
+                    <label for="username" class="col-sm-3 control-label">UserName</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="username" data-ng-model="username" placeholder="UserName" class="form-control" autofocus>
+                       
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email" data-ng-model="mail" placeholder="Email" class="form-control">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="password" data-ng-model="password" placeholder="Password" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mobile" class="col-sm-3 control-label">Mobile</label>
+                    <div class="col-sm-9">
+                        <input type="mobile" id="mobile" data-ng-model="mobile" placeholder="Mobile" class="form-control">
+                    </div>
+                </div>
+               <div class="form-group">
+                    <label for="dob" class="col-sm-3 control-label">Date of Birth</label>
+                    <div class="col-sm-9">
+                        <input type="date" id="date" data-ng-model="dob" placeholder="DOB" class="form-control">
+                    </div>
+                </div>
+  
+                    <div class="form-group">
+                    <label for="address" class="col-sm-3 control-label">Address</label>
+                    <div class="col-sm-9">
+                       <textarea draggable="false" rows="6" data-ng-model="address"></textarea>
+                    </div>
+                     <label class="control-label col-sm-3">Role</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="employeeRadio" data-ng-model="role" value="Employee">Employee
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="studentRadio" data-ng-model="role" value="Student">Student
+                                </label>
+                            </div>
+                           
+                        </div></div>
+                    <label class="control-label col-sm-3">Gender</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="femaleRadio" data-ng-model="gender" value="Female">Female
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="maleRadio" data-ng-model="gender" value="Male">Male
+                                </label>
+                            </div>
+                           
+                        </div>
+      
+                         <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </div>
+                </div>
+                    </div></form>
+                </div> 
+       <script type="text/javascript" src="userctrl.js"></script> 
+                
+<!-- <script type="text/javascript" src="../resources/angular.min.js"></script>
+</head>
+<body data-ng-app="registerApp"> 
+<h1 align="center" style="margin-top:60px;">Register Here</h1>
+<div class="text-center myForm" style="margin-top:50px;width:200px;">
+	<form role="form" data-ng-submit="submit()" action=""
+		data-ng-controller="userctrl">
+		<table>
+		<tr><td>username:</td><td> <input type="text" data-ng-model="username"></td></tr><br>
+		<tr><td>E-Mail:</td><td> <input type="email" data-ng-model="mail"></td></tr> <br>
+		<tr><td>Password:</td><td><input type="text" data-ng-model="password"></td></tr><br>
+		<tr><td> Mobile:</td><td><input
+			type="number" data-ng-model="mobile"></td></tr><br> 
+			<tr><td>Date of Birth:</td><td><input
+			type="date" data-ng-model="dob"></td></tr><br>
+			<tr><td> Role:</td><td><input type="text"
+			data-ng-model="role"></td></tr> <br>
+			<tr><td>Address:</td><td>
+		<textarea draggable="false" rows="13" data-ng-model="address"></textarea></td></tr>
+		<br>
+		<tr><td>Gender:</td><td><input type="radio" data-ng-model="gender" value="male">Male
+		<input type="radio" data-ng-model="gender" value="female">female</td></tr>
+		<br>
+		<tr><td></td><td><button type="submit">Save Blog</button></td></tr>
+		</table>
+	</form>
+	</div>
+	<script type="text/javascript" src="userctrl.js"></script> -->
+</body>
+</html>

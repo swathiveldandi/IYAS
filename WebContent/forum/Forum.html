@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body data-ng-app="myApp">
+	<h1>Forum</h1>
+	<div  data-ng-controller="Forum">
+	<form role="form"  action="" data-ng-submit="submit()">
+		ForumID: <input type="text" data-ng-model="fid"> <br>
+		Forum Name: <input type="text" data-ng-model="forumname"> <br>
+	
+		 Forum Description
+		<textarea draggable="false" rows="10" data-ng-model="forumdesc"></textarea>
+			<button type="submit">Save Forum</button>
+	</form>
+	<input type="text" data-ng-model="search" placeholder="search forum">
+<div data-ng-init="getAllForums()">
+	 <div data-ng-repeat="forum in forums | filter:search">
+	<span data-ng-bind="forum.forumname"></span>
+      {{forum.forumdesc}} 
+	<button data-ng-click="editForum(forum.fid,forum.forumname,forum.forumdesc)">edit</button>
+		<button data-ng-click="deleteForum(forum.fid)">delete</button>
+	</div> 
+	</div>
+	</div>
+
+		<script type="text/javascript" src="Forum.js"></script>
+</body>
+</html>
