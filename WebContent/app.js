@@ -1,4 +1,4 @@
-var app = angular.module("myroute", ["ngRoute","ngCookies","myApp","registerApp","app","blogApp"])
+var app = angular.module("myroute", ["ngRoute","ngCookies","myApp","registerapp","app","blogApp","chatapp","allusers"])
 .run(run);
 app.config(function($routeProvider,$locationProvider) {
     $routeProvider
@@ -25,6 +25,13 @@ app.config(function($routeProvider,$locationProvider) {
     	templateUrl:"Login/Login.html",
     	controller:'LoginController',
     	controllerAs:'vm'
+    }).when("/users",{
+    	templateUrl: "Friend/AllUsers.html",
+    	controller:'alluserctrl'
+    })
+    .when("/chat",{
+    	templateUrl: "Chat/chat.html",
+    	controller: "chatController",
     });
   
         });

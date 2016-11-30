@@ -1,4 +1,4 @@
-var app = angular.module('registerApp',[]);
+var app = angular.module('registerapp',[]);
 app.controller('userctrl', [ '$scope', '$http', function($scope, $http) {
 	var BASE_URL = 'http://localhost:8083/CollabBackEnd/';
 	$scope.submit = function() {
