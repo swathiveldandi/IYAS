@@ -1,5 +1,4 @@
-	
-	var app = angular.module('blogApp',[]);
+var app = angular.module('blogApp',[]);
 	app.controller('Blog', [ '$scope', '$http', function($scope, $http) {
 		var BASE_URL = 'http://localhost:8083/CollabBackEnd';
 
@@ -37,7 +36,7 @@
 				alert("error");
 			});
 		};
-		$scope.deleteBlog=function(bid){
+		$scope.deleteblog=function(bid){
 			$http({
 				method:'DELETE',
 			url:BASE_URL+'/deleteBlog/'+bid
@@ -45,16 +44,12 @@
 				$scope.getAllBlogs();
 			})
 		};
-		
-		$scope.editBlog = function(bid,blogname,blogdesc) {
-			
-				$scope.bid = bid;
-				$scope.blogname = blogname;
-				$scope.blogdesc = blogdesc;
-			
+		$scope.editblog=function(bid,blogname,blogdesc){
+			$scope.blogid=bid;
+			$scope.blogname=blogname;
+			$scope.blogdesc=blogdesc;
 		}
 	
 			
 	}]);
 	
-		  

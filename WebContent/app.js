@@ -1,4 +1,4 @@
-var app = angular.module("myroute", ["ngRoute","ngCookies","myApp","registerapp","app","blogApp","chatapp","allusers"])
+var app = angular.module("myroute", ["ngRoute","ngCookies","myApp","registerapp","app","blogApp","chatapp","allusers","JobApp"])
 .run(run);
 app.config(function($routeProvider,$locationProvider) {
     $routeProvider
@@ -32,9 +32,17 @@ app.config(function($routeProvider,$locationProvider) {
     .when("/chat",{
     	templateUrl: "Chat/chat.html",
     	controller: "chatController",
+    })
+    .when("/jobs",{
+    	templateUrl: "Job/ViewJob.html",
+    	controller: "jobctrl"
+    })
+    .when("/individualforum",{
+    	templateUrl: "forum/IndividualForum.html",
+	controller: "commentctrl"
     });
   
-        });
+    console.log("route");  });
 run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
 function run($rootScope, $location, $cookieStore, $http) {
     // keep user logged in after page refresh
@@ -45,7 +53,7 @@ function run($rootScope, $location, $cookieStore, $http) {
 
     $rootScope.$on('$locationChangeStart', function (event, next, current) {
         // redirect to login page if not logged in and trying to access a restricted page
-        var restrictedPage = $.inArray($location.path(), ['/login', '/register','/home']) === -1;
+        var restrictedPage = $.inArray($location.path(), ['/login', '/register','/home','/jobs']) === -1;
         var loggedIn = $rootScope.globals.currentUser;
         if (restrictedPage && !loggedIn) {
             $location.path('/login');

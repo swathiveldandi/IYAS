@@ -1,7 +1,7 @@
 
 	
 	var app = angular.module('myApp',[]);
-	app.controller('Forum', [ '$scope', '$http', function($scope, $http) {
+	app.controller('Forum', [ '$scope', '$http','$location','$rootScope', function($scope, $http,$location,$rootScope) {
 		var BASE_URL = 'http://localhost:8083/CollabBackEnd';
 
 
@@ -38,6 +38,7 @@
 				alert("error");
 			});
 		};
+		
 		$scope.deleteForum=function(fid){
 			$http({
 				method:'DELETE',
@@ -46,13 +47,26 @@
 				$scope.getAllForums();
 			})
 		};
-		$scope.editForum = function(fid,forumname,forumdesc) {
+		$scope.editForum=function(fid,forumname,forumdesc){
+			$scope.forumid=fid;
+			$scope.forumname=forumname;
+			$scope.forumdesc=forumdesc;
+		}
+		$scope.getforum=function(id){
 			
-			$scope.fid = fid;
-			$scope.forumname = forumname;
-			$scope.forumdesc = forumdesc;
+			console.log("iforum")
+			$http({
+				method: "GET",
+				url:BASE_URL+'/individualforum/'+id,
+			}).success(function(data,status,headers,config){
+				$location.path('/individualforum');
+				$rootScope.individualforums=data;
+				console.log(data)
+			}).error(function(data, status, headers, config) {
+				alert("Error");
+			});
+		}
 		
-	}
 			
 	}]);
 	
