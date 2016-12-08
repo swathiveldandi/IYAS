@@ -1,7 +1,8 @@
 var app= angular
         .module('app')
         .factory('AuthenticationService', AuthenticationService);
- var BASE_URL = 'http://localhost:8083/CollabBackEnd/';
+//app.factory('AuthenticationService', AuthenticationService);
+ var BASE_URL = 'http://localhost:8083/CollabBackEnd';
     AuthenticationService.$inject = ['$http', '$cookieStore', '$rootScope'];
     function AuthenticationService($http, $cookieStore, $rootScope) {
         var service = {};
@@ -13,11 +14,15 @@ var app= angular
  
         return service;
  
-        function Login(username, password, callback,$scope) {
+        function Login(username, password, callback) {
         	$http({
     			method:'GET',
-    		url:BASE_URL+'login/'+username+'/'+password
-    		}).success(function (response,data) {
+    		   url:BASE_URL+'/login/'+username+'/'+password
+    		}).success(function (response,data,status,headers,config) {
+    			$rootScope.currentuser=response;
+    			console.log(response)
+    			console.log(data)
+    			console.log(status)
     			if(data!=null){
     				
     				 response = { success: true };
@@ -43,17 +48,20 @@ var app= angular
              $rootScope.globals = {
                  currentUser: {
                      username: username,
-                     authdata: authdata
+                     authdata: authdata,
+                     islogged:true
                  }
             };
  
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
             $cookieStore.put('globals', $rootScope.globals);
+            $cookieStore.put('currentuser',$rootScope.currentuser);
         }
  
         function ClearCredentials() {
             $rootScope.globals = {};
             $cookieStore.remove('globals');
+            $cookieStore.remove('uid');
             $http.defaults.headers.common.Authorization = 'Basic';
         }
     }

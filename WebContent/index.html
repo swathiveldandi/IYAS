@@ -19,6 +19,7 @@
 <script type="text/javascript" src="Login/loginService.js"></script>
 <script type="text/javascript" src="app.js"></script>
  <script type="text/javascript" src="Friend/allUsersCtrl.js"></script>
+ <script type="text/javascript" src="Friend/myfriendsctrl.js"></script>
 <script type="text/javascript" src="Chat/chatController.js"></script>
 <script type="text/javascript" src="Chat/chatService.js"></script> 
 <script type="text/javascript" src="Job/jobctrl.js"></script>
@@ -53,12 +54,12 @@
     <ul class="nav navbar-nav navbar-right">
      <li><a href="#register" data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-user"></i></a></li>
      <li><a href="#login" data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-log-in"></i></a></li>
-     <li style="padding-top:15px;" data-ng-show="globals.currentUser.islogged"></li>
+     <li style="padding-top:15px;" data-ng-show="globals.currentUser.islogged">Welcome:{{globals.currentUser.username}}</li>
+     <li data-ng-show="globals.currentUser.islogged"><a href="#myprofile">My Profile</a></li>
     <li data-ng-show="globals.currentUser.islogged"><a href="" data-ng-click="vm.logout()"></a></li>
-    </ul>
+    </ul>{{currentuser.id}}
   </div>
 </nav>
 </div>
-
 </body>
 </html>

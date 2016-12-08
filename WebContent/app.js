@@ -1,4 +1,4 @@
-var app = angular.module("myroute", ["ngRoute","ngCookies","myApp","registerapp","app","blogApp","chatapp","allusers","JobApp"])
+var app = angular.module("myroute", ["ngRoute","ngCookies","myApp","registerapp","app","blogApp","chatapp","allusers","JobApp","friendapp"])
 .run(run);
 app.config(function($routeProvider,$locationProvider) {
     $routeProvider
@@ -40,9 +40,21 @@ app.config(function($routeProvider,$locationProvider) {
     .when("/individualforum",{
     	templateUrl: "forum/IndividualForum.html",
 	controller: "commentctrl"
+		})
+		 .when("/myprofile",{
+		    	templateUrl: "Users/UserProfile.html",
+		    	controller: "userctrl"
+		    })
+		    .when("/myfriends",{
+		    	templateUrl: "Friend/MyFriends.html",
+		    	controller: "myfriendctrl"
+		    })
+		    .when("/newrequests",{
+		    	templateUrl: "Friend/newrequests.html",
+		    	controller: "myfriendctrl"
     });
   
-    console.log("route");  });
+    console.log("routting");  });
 run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
 function run($rootScope, $location, $cookieStore, $http) {
     // keep user logged in after page refresh
