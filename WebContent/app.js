@@ -25,6 +25,7 @@ app.config(function($routeProvider,$locationProvider) {
     	templateUrl:"Login/Login.html",
     	controller:'LoginController',
     	controllerAs:'vm'
+    		
     }).when("/users",{
     	templateUrl: "Friend/AllUsers.html",
     	controller:'alluserctrl'
@@ -41,6 +42,7 @@ app.config(function($routeProvider,$locationProvider) {
     	templateUrl: "forum/IndividualForum.html",
 	controller: "commentctrl"
 		})
+		
 		 .when("/myprofile",{
 		    	templateUrl: "Users/UserProfile.html",
 		    	controller: "userctrl"
@@ -59,6 +61,7 @@ run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
 function run($rootScope, $location, $cookieStore, $http) {
     // keep user logged in after page refresh
     $rootScope.globals = $cookieStore.get('globals') || {};
+    $rootScope.currentuser = $cookieStore.get('currentuser') || {};
     if ($rootScope.globals.currentUser) {
         $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
     }
