@@ -10,7 +10,11 @@ var app = angular.module('blogApp',[]);
 				url : BASE_URL+'/getAllBlogs'
 			}).success(function(data, status, headers, config) {
 				$scope.blogs=data;
+				angular.forEach($scope.blogs, function(value, key){
 				//alert(data); 
+				var user=value.userid
+		         console.log(user);
+		   });
 			}).error(function(data, status, headers, config) {
 				alert("Error");
 			});
@@ -50,6 +54,14 @@ var app = angular.module('blogApp',[]);
 			$scope.blogdesc=blogdesc;
 		}
 	
+		$scope.like=function(bid){
+			$http({
+				method : 'POST',
+				url : BASE_URL + '/likeblog/'+bid,
+			}).success(function(data, status, headers, config) {
+				alert("success")
+			})
 			
+		}	
 	}]);
 	

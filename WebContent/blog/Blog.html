@@ -61,8 +61,11 @@
         		<hr>        
         		<p>{{blog.blogdesc}}</p>
         		<hr>
-              <p><button data-ng-click="editblog(blog.bid,blog.blogname,blog.blogdesc)">edit</button>
-		<button data-ng-click="deleteblog(blog.bid)" class="btn btn-primary btn-danger">delete</button></p>
+              <p><button data-ng-show="blog.userid==globals.currentUser.username" data-ng-click="editblog(blog.bid,blog.blogname,blog.blogdesc)">edit</button>
+		<button data-ng-show="blog.userid==globals.currentUser.username" data-ng-click="deleteblog(blog.bid)" class="btn btn-primary btn-danger">delete</button>
+		<button align="right" class="btn btn-primary" data-ng-click="like(blog.bid)">Like</button>
+		<i class="fa fa-thumbs-up"></i>{{blog.bloglike}}</li>
+		</p>
         	</div>
         </div></div></div>
 	

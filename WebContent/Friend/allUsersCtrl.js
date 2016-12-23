@@ -5,7 +5,7 @@ app.controller('alluserctrl',['$scope','$http',function($scope,$http){
 		console.log("get all users")
 		$http({
 			method : 'GET',
-			url : BASE_URL+'/users'
+			url : BASE_URL+'/nonfriends'
 		}).success(function(data, status, headers, config) {
 			$scope.users=data;
 			//alert(data); 

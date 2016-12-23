@@ -15,7 +15,8 @@
 <h1>IYAS</h1>
 
 <br>
-<a href="" data-ng-click="vm.logout()">logout</a>
+<div  data-ng-show="globals.currentUser.islogged"><a  href="" data-ng-click="vm.logout()">logout</a></div> 
+
 <br><br><br><br><br><br><br><br>
 </body>
 </html>
